@@ -4,23 +4,20 @@ encender y apagar el auto.
 Output:                 objeto.encender();                  auto encendido
                         objeto.apadar()                     El auto se apagó
 */
-/* Para la creacion de obj:
-notacion literal: const pelicula = {
-            //van las propiedades/caracteristicas ->  clave: valor 
-                        
-} */
 
 const auto = {
   //carcteristicas
   color : "rojo",
-  marca : "peugeot",
+  marca : "Peugeot",
   modelo : 208,
-  //metodos -- si o si tiene que poner
+  
   encender: function () {
     document.write("<p> Auto Encendido</p>")
   },
   apagar: function () {
-    document.write("<p>El auto se apagao</p>")
-  }
+    document.write("<p>Auto apagado</p>")
+  },
 };
-
+document.write(`<h2>${auto.marca} ${auto.modelo}</h2>`);
+auto.encender();
+auto.apagar();
