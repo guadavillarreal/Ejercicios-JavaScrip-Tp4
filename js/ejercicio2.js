@@ -29,13 +29,13 @@ const cuenta = {
       alert("No hay suficiente saldo en la cuenta");
     }
   },
-  informar: function (cantidad) {
+  informar: function () {
     console.log(`<h2>Titular ${this.titular}</h2>`);
     console.log(`<h2>Su saldo es: ${this.saldo}</h2>`);
   },
 };
 
 cuenta.informar();
-cuenta.ingresar(10000);
-cuenta.extraer(1000);
+cuenta.ingresar();
+cuenta.extraer();
 cuenta.informar();
