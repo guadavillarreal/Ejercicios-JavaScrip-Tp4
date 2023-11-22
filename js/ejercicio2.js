@@ -10,24 +10,32 @@ a mostrar la descripción del estado de la cuenta.
 Rectángulos */
 
 const cuenta = {
-            titular : "Alex",
-            saldo : 0,
+  titular: "Alex",
+  saldo: 0,
 
-ingresar : function (cantidad) {
-            if (cantidad<0) {
-                        this.saldo= this.saldo+cantidad             
-            } else {
-                        alert("Ingrese un monto valido")   
-            }
-},
-extraer : function (cantidad) {
-            if (cantidad<0 && cantidad<this.saldo) {
-                        this.saldo= this.saldo-cantidad             
-            } else {
-                        alert("Ingrese un monto valido")   
-            }
-},
-informar : function (cantidad) {
-            alert(`Su saldo es: ${this.saldo}`)   
-},
-}
+  ingresar: function (cantidad) {
+    if (cantidad > 0) {
+      this.saldo = this.saldo + cantidad;
+      console.log(`Su saldo actual es:  ${this.saldo}`);
+    } else {
+      console.log("Ingrese un monto valido");
+    }
+  },
+  extraer: function (cantidad) {
+    if (cantidad > 0 && cantidad <= this.saldo) {
+      this.saldo = this.saldo - cantidad;
+      console.log(`Operacion exitosa`);
+    } else {
+      alert("No hay suficiente saldo en la cuenta");
+    }
+  },
+  informar: function (cantidad) {
+    console.log(`<h2>Titular ${this.titular}</h2>`);
+    console.log(`<h2>Su saldo es: ${this.saldo}</h2>`);
+  },
+};
+
+cuenta.informar();
+cuenta.ingresar(10000);
+cuenta.extraer(1000);
+cuenta.informar();
