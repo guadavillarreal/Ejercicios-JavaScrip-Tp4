@@ -4,7 +4,7 @@ el cual escribe por pantalla los valores de sus propiedades.
 Posteriormente, cree tres instancias de este objeto y guárdalas en un array.
 Por último, utilice el método imprime datos para mostrar por pantalla los valores 
 de los tres objetos instanciados.*/
-const mercaderia = [producto1,producto2,producto3];
+const mercaderia = [producto1, producto2, producto3];
 class Producto {
   constructor(codigoParam, nombreParam, precioParam) {
     this.codigo = codigoParam;
@@ -18,7 +18,7 @@ class Producto {
   }
 }
 
-const producto1 = new Producto(10,cocacola,100);
-const producto2 = new Producto(20,pepsi,100);
-const producto3 = new Producto (30,fanta,90);
+const producto1 = new Producto(10, "cocacola", 100);
+const producto2 = new Producto(20, "pepsi", 100);
+const producto3 = new Producto(30, "fanta", 90);
 console.log(mercaderia);
