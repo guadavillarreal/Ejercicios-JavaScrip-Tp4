@@ -35,6 +35,12 @@ class Persona {
     this.#altura = alturaParam;
     this.#nacimiento = nacimientoParam;
   }
+  get nombre(){
+    return this.nombreParam;
+  }
+  set nombre(nuevonombre){
+    this.nombre= nuevonombre;
+  }
   get edad() {
     return this.#edad;
   }
