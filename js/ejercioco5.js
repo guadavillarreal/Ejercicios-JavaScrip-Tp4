@@ -10,11 +10,13 @@ Los métodos que se debe poder utilizar  son:
  - esMayorDeEdad: indica si es mayor de edad, devuelve un mensaje 
     indicando que la persona es mayor de edad.
  - mostrarDatos: devuelve toda la información del objeto.
-    generaDNI(): genera un número aleatorio de 8 cifras.*/
+ - generaDNI(): genera un número aleatorio de 8 cifras.*/
 
 class Persona {
+  #nombre;
   #edad;
   #dni;
+  #sexo;
   #peso;
   #altura;
   #nacimiento;
@@ -27,56 +29,63 @@ class Persona {
     alturaParam,
     nacimientoParam
   ) {
-    this.nombre = nombreParam;
+    this.#nombre = nombreParam;
     this.#edad = edadParam;
     this.#dni = dniParam;
-    this.sexo = sexoParam;
+    this.#sexo = sexoParam;
     this.#peso = pesoParam;
     this.#altura = alturaParam;
     this.#nacimiento = nacimientoParam;
   }
-  get nombre(){
-    return this.nombreParam;
+  //metodos computados
+  get nuevonombre() {
+    return this.#nombre;
   }
-  set nombre(nuevonombre){
-    this.nombre= nuevonombre;
+  set nuevonombre(nombreParam) {
+    this.#nombre = nombreParam;
   }
-  get edad() {
+  get nuevaedad() {
     return this.#edad;
   }
-  set edad(nuevaedad) {
+  set nuevaedad(edadParam) {
     if (nuevaedad > 0) {
-      this.#edad = nuevaedad;
+      this.#edad = edadParam;
     } else {
       console.log("EL número ingresado no es valido");
     }
   }
-  get dni() {
+  get nuevodni() {
     return this.#dni;
   }
-  set dni(nuevodni) {
+  set nuevodni(dniParam) {
     if (nuevodni > 0) {
-      this.#dni = nuevodni;
+      this.#dni = dniParam;
     } else {
       console.log("El dni ingresa no es valido");
     }
   }
-  get peso() {
+  get nuevosexo() {
+    return this.#sexo;
+  }
+  set nuevosexo(sexoParam) {
+    this.#sexo = sexoParam;
+  }
+  get nuevoPeso() {
     return this.#peso;
   }
-  set peso(nuevoPeso) {
+  set nuevoPeso(pesoParam) {
     if (nuevoPeso > 0) {
-      this.#peso = nuevoPeso;
+      this.#peso = pesoParam;
     } else {
       console.log("El peso ingresa no es valido");
     }
   }
-  get altura() {
+  get nuevaaltura() {
     return this.#altura;
   }
-  set altura(nuevaaltura) {
+  set nuevaaltura(alturaParam) {
     if (nuevaaltura > 0) {
-      this.#altura = nuevaaltura;
+      this.#altura = alturaParam;
     } else {
       console.log("La altura ingresa no es valida");
     }
@@ -91,6 +100,7 @@ class Persona {
       console.log("El año ingresa no es valido");
     }
   }
+  //metodos
   mostrarGeneracion() {
     let generacion = "";
     let razgo = "";
@@ -114,8 +124,8 @@ class Persona {
               generacion = "Generación Z";
               razgo = "Irreverencia";
             } else {
-              generacion = "no tenemos parametros para su generación"
-              razgo = " "
+              generacion = "no tenemos parametros para su generación";
+              razgo = " ";
             }
           }
         }
