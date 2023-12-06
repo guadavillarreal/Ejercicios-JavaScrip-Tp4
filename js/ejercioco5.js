@@ -31,7 +31,7 @@ class Persona {
   ) {
     this.#nombre = nombreParam;
     this.#edad = edadParam;
-    this.#dni = dniParam;
+    this.#dni = this.generarDNI();
     this.#sexo = sexoParam;
     this.#peso = pesoParam;
     this.#altura = alturaParam;
@@ -142,16 +142,32 @@ class Persona {
     }
   }
   mostrarDatos() {
-    console.log(`<h2>Persona: ${this.nombre}</h2>
+    console.log(`<h2>Persona: ${this.#nombre}</h2>
         <ul>
-        <li>${this.edad}</li>
-        <li>${this.dni}</li>
-        <li>${this.sexo}</li>
-        <li>${this.peso}</li>
-        <li>${this.altura}</li>
-        <li>${this.nacimiento}</li>
+        <li>${this.#edad}</li>
+        <li>${this.#dni}</li>
+        <li>${this.#sexo}</li>
+        <li>${this.#peso}</li>
+        <li>${this.#altura}</li>
+        <li>${this.#nacimiento}</li>
         </ul>
         `);
   }
+
+  generarDNI() {
+    return parseInt(Math.random()*99999999)
+    //    return parseInt(Math.random() * 99999999);
+  }
 }
-//me falta ver lo del dni ---    generaDNI(): genera un número aleatorio de 8 cifras.
+let nombreParam = prompt("Ingrese un Nombre");
+let edadParam = prompt("Ingrese la edad");
+let generoParam = prompt("Ingrese un genero: H(hombre) M(mujer)");
+let pesoParam = prompt("Ingrese el peso");
+let alturaParam = prompt("Ingrese la altura");
+let nacimientoParam = prompt ("Ingrese el año de nacimiento");
+
+
+
+const nuevaPersona = new Persona (nombreParam,edadParam,generoParam,)
+
+console.log(nuevaPersona.mostrarDatos);
