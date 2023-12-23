@@ -126,8 +126,8 @@ class Persona {
         }
       }
     }
-    console.log(`La persona pertenece a la generación:${generacion}`);
-    console.log(`Su razgo caracteristico es: ${razgo}`);
+    document.write(`La persona pertenece a la generación:${generacion}`);
+    document.write(`Su razgo caracteristico es: ${razgo}`);
   }
   esMayorDeEdad() {
     if (this.edad >= 18) {
@@ -172,3 +172,4 @@ let nuevaPersona = new Persona(
 );
 
 document.write(nuevaPersona.mostrarDatos());
+personalbar.mostrarGeneracion();
