@@ -11,7 +11,8 @@ Los métodos que se debe poder utilizar  son:
     indicando que la persona es mayor de edad.
  - mostrarDatos: devuelve toda la información del objeto.
  - generaDNI(): genera un número aleatorio de 8 cifras.*/
-
+ let generacion =" ";
+let razgo =" ";
 class Persona {
   #nombre;
   #edad;
@@ -96,28 +97,27 @@ class Persona {
     }
   }
   //metodos
+  
   mostrarGeneracion() {
-    let generacion = "";
-    let razgo = "";
     if (this.nacimiento >= 1930 && this.nacimiento <= 1948) {
-      generacion = "Silent Generation";
-      razgo = "la AUSTERIDAD";
+      generacion = " Silent Generation- Generación Silenciosa";
+      razgo = " Austeridad";
     } else {
       if (this.nacimiento >= 1949 && this.nacimiento <= 1968) {
-        generacion = "Baby Boom";
-        razgo = "Ambición";
-      } else {
+        generacion = " Baby Boom ";
+        razgo = " Ambición";
+            } else {
         if (this.nacimiento >= 1969 && this.nacimiento <= 1980) {
           generacion = "Generación X";
-          razgo = "Obseción por el éxito";
+          razgo = " Obseción por el éxito";
         } else {
           if (this.nacimiento >= 1981 && this.nacimiento <= 1993) {
-            generacion = "Generacion Y MILLENNIALS";
-            razgo = "Frustración";
+            generacion = " Generacion -Y- MILLENNIALS ";
+            razgo = " Frustración ";
           } else {
             if (this.nacimiento >= 1994 && this.nacimiento <= 2010) {
               generacion = "Generación Z";
-              razgo = "Irreverencia";
+              razgo = " Irreverencia";
             } else {
               generacion = "no tenemos parametros para su generación";
               razgo = " ";
@@ -126,8 +126,8 @@ class Persona {
         }
       }
     }
-    document.write(`La persona pertenece a la generación:${generacion}`);
-    document.write(`Su razgo caracteristico es: ${razgo}`);
+    document.write(`La persona pertenece a la generación:  ${ generacion } <br>`);
+    document.write(`Su razgo caracteristico es: ${ razgo }`);
   }
   esMayorDeEdad() {
     if (this.edad >= 18) {
@@ -169,7 +169,7 @@ let nuevaPersona = new Persona(
   alturaParam,
   nacimientoParam
 );
-
-document.write(nuevaPersona.esMayorDeEdad());
-document.write(nuevaPersona.mostrarGeneracion());
-document.write(nuevaPersona.mostrarDatos());
+// no hace falata poner el obj documente.write ya que en la fucnion ya esta declarado
+//document.write(nuevaPersona.esMayorDeEdad());
+nuevaPersona.mostrarGeneracion(); 
+//document.write(nuevaPersona.mostrarDatos());
