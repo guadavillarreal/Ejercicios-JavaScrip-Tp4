@@ -66,7 +66,7 @@ class Persona {
   set nuevosexo(sexoParam) {
     //no me toma para convertir en mayuscula 
    sexoParam = sexoParam.toUpperCase();
-    if (sexoParam == "M") {
+    if (sexoParam == "M" || sexoParam == "m") {
       sexoParam = " Mujer";
     } else {
       sexoParam = " Varón";
@@ -115,15 +115,15 @@ class Persona {
         razgo = " Ambición";
       } else {
         if (this.nacimiento >= 1969 && this.nacimiento <= 1980) {
-          generacion = "Generación X";
+          generacion = " X";
           razgo = " Obseción por el éxito";
         } else {
           if (this.nacimiento >= 1981 && this.nacimiento <= 1993) {
-            generacion = " Generacion -Y- MILLENNIALS ";
+            generacion = "  -Y- MILLENNIALS ";
             razgo = " Frustración ";
           } else {
             if (this.nacimiento >= 1994 && this.nacimiento <= 2010) {
-              generacion = "Generación Z";
+              generacion = " Z";
               razgo = " Irreverencia";
             } else {
               generacion = "no tenemos parametros para su generación";
@@ -138,9 +138,10 @@ class Persona {
   }
   esMayorDeEdad() {
     if (this.#edad >= 18) {
-      document.write(`La persona es mayor de edad`);
+    
+    document.write(`<br> La persona es mayor de edad <br>`);
     } else {
-      document.write(`La persona es menor de edad`);
+      document.write(` <br> La persona es menor de edad <br>`);
     }
   }
   mostrarDatos() {
@@ -177,7 +178,8 @@ let nuevaPersona = new Persona(
   nacimientoParam
 );
 // no hace falata poner el obj documente.write ya que en la fucnion ya esta declarado
+nuevaPersona.mostrarDatos();
 nuevaPersona.esMayorDeEdad();
 nuevaPersona.mostrarGeneracion();
-nuevaPersona.mostrarDatos();
+
 //console.log(sexoParam);
