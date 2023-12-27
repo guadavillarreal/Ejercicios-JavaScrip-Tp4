@@ -42,7 +42,7 @@ class Libro {
   set nuevonumPag(numPagnuevo) {
     this.numPag = numPagnuevo;
   }
-
+//metodo mostrar
   mostrarLibro() {
     document.write(`<h2>EL libro: ${this.titulo}</h2>
     Con ISBN ${this.isbn}, creado por el autor ${this.autor},
