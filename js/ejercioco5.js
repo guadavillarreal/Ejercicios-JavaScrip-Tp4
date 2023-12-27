@@ -148,7 +148,6 @@ class Persona {
         </ul>
         `);
   }
-
   generarDNI() {
     return parseInt(Math.random() * 99999999);
 
@@ -171,5 +170,6 @@ let nuevaPersona = new Persona(
   nacimientoParam
 );
 
+document.write(nuevaPersona.esMayorDeEdad());
+document.write(nuevaPersona.mostrarGeneracion());
 document.write(nuevaPersona.mostrarDatos());
-personalbar.mostrarGeneracion();
