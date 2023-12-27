@@ -10,73 +10,77 @@ Los métodos que se debe poder utilizar  son:
  - esMayorDeEdad: indica si es mayor de edad, devuelve un mensaje 
     indicando que la persona es mayor de edad.
  - mostrarDatos: devuelve toda la información del objeto.
-    generaDNI(): genera un número aleatorio de 8 cifras.*/
+ - generaDNI(): genera un número aleatorio de 8 cifras.*/
 
 class Persona {
+  #nombre;
   #edad;
   #dni;
+  #sexo;
   #peso;
   #altura;
   #nacimiento;
   constructor(
     nombreParam,
     edadParam,
-    dniParam,
     sexoParam,
     pesoParam,
     alturaParam,
     nacimientoParam
   ) {
-    this.nombre = nombreParam;
+    this.#nombre = nombreParam;
     this.#edad = edadParam;
-    this.#dni = dniParam;
-    this.sexo = sexoParam;
+    this.#dni = this.generarDNI();
+    this.#sexo = sexoParam;
     this.#peso = pesoParam;
     this.#altura = alturaParam;
     this.#nacimiento = nacimientoParam;
   }
-  get nombre(){
-    return this.nombreParam;
+  //metodos computados
+  get nuevonombre() {
+    return this.#nombre;
   }
-  set nombre(nuevonombre){
-    this.nombre= nuevonombre;
+  set nuevonombre(nombreParam) {
+    this.#nombre = nombreParam;
   }
-  get edad() {
+  get nuevaedad() {
     return this.#edad;
   }
-  set edad(nuevaedad) {
+  set nuevaedad(edadParam) {
     if (nuevaedad > 0) {
-      this.#edad = nuevaedad;
+      this.#edad = edadParam;
     } else {
       console.log("EL número ingresado no es valido");
     }
   }
-  get dni() {
+  get nuevodni() {
     return this.#dni;
   }
-  set dni(nuevodni) {
-    if (nuevodni > 0) {
-      this.#dni = nuevodni;
-    } else {
-      console.log("El dni ingresa no es valido");
-    }
+  set nuevodni(generarDNI) {
+    this.#dni = generarDNI;
   }
-  get peso() {
+  get nuevosexo() {
+    return this.#sexo;
+  }
+  set nuevosexo(sexoParam) {
+    this.#sexo = sexoParam;
+  }
+  get nuevoPeso() {
     return this.#peso;
   }
-  set peso(nuevoPeso) {
+  set nuevoPeso(pesoParam) {
     if (nuevoPeso > 0) {
-      this.#peso = nuevoPeso;
+      this.#peso = pesoParam;
     } else {
       console.log("El peso ingresa no es valido");
     }
   }
-  get altura() {
+  get nuevaaltura() {
     return this.#altura;
   }
-  set altura(nuevaaltura) {
+  set nuevaaltura(alturaParam) {
     if (nuevaaltura > 0) {
-      this.#altura = nuevaaltura;
+      this.#altura = alturaParam;
     } else {
       console.log("La altura ingresa no es valida");
     }
@@ -91,6 +95,7 @@ class Persona {
       console.log("El año ingresa no es valido");
     }
   }
+  //metodos
   mostrarGeneracion() {
     let generacion = "";
     let razgo = "";
@@ -114,15 +119,15 @@ class Persona {
               generacion = "Generación Z";
               razgo = "Irreverencia";
             } else {
-              generacion = "no tenemos parametros para su generación"
-              razgo = " "
+              generacion = "no tenemos parametros para su generación";
+              razgo = " ";
             }
           }
         }
       }
     }
-    console.log(`La persona pertenece a la generación:${generacion}`);
-    console.log(`Su razgo caracteristico es: ${razgo}`);
+    document.write(`La persona pertenece a la generación:${generacion}`);
+    document.write(`Su razgo caracteristico es: ${razgo}`);
   }
   esMayorDeEdad() {
     if (this.edad >= 18) {
@@ -132,16 +137,39 @@ class Persona {
     }
   }
   mostrarDatos() {
-    console.log(`<h2>Persona: ${this.nombre}</h2>
+    document.write(`<h2>Persona: ${this.#nombre}</h2>
         <ul>
-        <li>${this.edad}</li>
-        <li>${this.dni}</li>
-        <li>${this.sexo}</li>
-        <li>${this.peso}</li>
-        <li>${this.altura}</li>
-        <li>${this.nacimiento}</li>
+        <li>Edad: ${this.#edad}</li>
+        <li>DNI: ${this.#dni}</li>
+        <li>Sexo: ${this.#sexo}</li>
+        <li>Peso:${this.#peso}</li>
+        <li>Altura: ${this.#altura}</li>
+        <li>Año de Nac:${this.#nacimiento}</li>
         </ul>
         `);
   }
+  generarDNI() {
+    return parseInt(Math.random() * 99999999);
+
+    //    return parseInt(Math.random() * 99999999);
+  }
 }
-//me falta ver lo del dni ---    generaDNI(): genera un número aleatorio de 8 cifras.
+let nombreParam = prompt("Ingrese un Nombre");
+let edadParam = prompt("Ingrese la edad");
+let sexoParam = prompt("Ingrese un genero: H(hombre) M(mujer)");
+let pesoParam = prompt("Ingrese el peso");
+let alturaParam = prompt("Ingrese la altura");
+let nacimientoParam = prompt("Ingrese el año de nacimiento");
+
+let nuevaPersona = new Persona(
+  nombreParam,
+  edadParam,
+  sexoParam,
+  pesoParam,
+  alturaParam,
+  nacimientoParam
+);
+
+document.write(nuevaPersona.esMayorDeEdad());
+document.write(nuevaPersona.mostrarGeneracion());
+document.write(nuevaPersona.mostrarDatos());
