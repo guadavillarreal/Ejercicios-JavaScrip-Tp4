@@ -17,7 +17,7 @@ Crea un menú con opciones que serán seleccionadas por el usuario usando un pro
  de las operaciones seleccionadas por el usuario se pueden mostrar en pantalla y  por consola.
 */
 class Contactos {
-  constructor(numero, nombre) {
+  constructor(nombre, numero) {
     this.nombre = nombre;
     this.numero = numero;
   }
@@ -35,7 +35,15 @@ class Contactos {
     this.numero = numeronuevo;
   }
   //metodos
-  aniadirContacto(){
-            
-  }
+  /*  contactoExistente(){
+    if (this.nombre === ) {
+      
+    } else {
+      
+    }
+  }*/
+}
+
+class Agenda extends Contactos (){
+  constructor(nombre , numero, ){}
 }
