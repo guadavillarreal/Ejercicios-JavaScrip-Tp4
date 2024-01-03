@@ -11,7 +11,8 @@ Los métodos que se debe poder utilizar  son:
     indicando que la persona es mayor de edad.
  - mostrarDatos: devuelve toda la información del objeto.
  - generaDNI(): genera un número aleatorio de 8 cifras.*/
-
+let generacion = " ";
+let razgo = " ";
 class Persona {
   #nombre;
   #edad;
@@ -63,6 +64,13 @@ class Persona {
     return this.#sexo;
   }
   set nuevosexo(sexoParam) {
+    //no me toma para convertir en mayuscula 
+   sexoParam = sexoParam.toUpperCase();
+    if (sexoParam == "M" || sexoParam == "m") {
+      sexoParam = " Mujer";
+    } else {
+      sexoParam = " Varón";
+    }
     this.#sexo = sexoParam;
   }
   get nuevoPeso() {
@@ -96,28 +104,27 @@ class Persona {
     }
   }
   //metodos
+
   mostrarGeneracion() {
-    let generacion = "";
-    let razgo = "";
     if (this.nacimiento >= 1930 && this.nacimiento <= 1948) {
-      generacion = "Silent Generation";
-      razgo = "la AUSTERIDAD";
+      generacion = " Silent Generation- Generación Silenciosa";
+      razgo = " Austeridad";
     } else {
       if (this.nacimiento >= 1949 && this.nacimiento <= 1968) {
-        generacion = "Baby Boom";
-        razgo = "Ambición";
+        generacion = " Baby Boom ";
+        razgo = " Ambición";
       } else {
         if (this.nacimiento >= 1969 && this.nacimiento <= 1980) {
-          generacion = "Generación X";
-          razgo = "Obseción por el éxito";
+          generacion = " X";
+          razgo = " Obseción por el éxito";
         } else {
           if (this.nacimiento >= 1981 && this.nacimiento <= 1993) {
-            generacion = "Generacion Y MILLENNIALS";
-            razgo = "Frustración";
+            generacion = "  -Y- MILLENNIALS ";
+            razgo = " Frustración ";
           } else {
             if (this.nacimiento >= 1994 && this.nacimiento <= 2010) {
-              generacion = "Generación Z";
-              razgo = "Irreverencia";
+              generacion = " Z";
+              razgo = " Irreverencia";
             } else {
               generacion = "no tenemos parametros para su generación";
               razgo = " ";
@@ -126,14 +133,15 @@ class Persona {
         }
       }
     }
-    console.log(`La persona pertenece a la generación:${generacion}`);
-    console.log(`Su razgo caracteristico es: ${razgo}`);
+    document.write(`La persona pertenece a la generación:  ${generacion} <br>`);
+    document.write(`Su razgo caracteristico es: ${razgo}`);
   }
   esMayorDeEdad() {
-    if (this.edad >= 18) {
-      console.log(`La persona es mayor de edad`);
+    if (this.#edad >= 18) {
+    
+    document.write(`<br> La persona es mayor de edad <br>`);
     } else {
-      console.log(`La persona es menor de edad`);
+      document.write(` <br> La persona es menor de edad <br>`);
     }
   }
   mostrarDatos() {
@@ -148,7 +156,6 @@ class Persona {
         </ul>
         `);
   }
-
   generarDNI() {
     return parseInt(Math.random() * 99999999);
 
@@ -170,5 +177,9 @@ let nuevaPersona = new Persona(
   alturaParam,
   nacimientoParam
 );
+// no hace falata poner el obj documente.write ya que en la fucnion ya esta declarado
+nuevaPersona.mostrarDatos();
+nuevaPersona.esMayorDeEdad();
+nuevaPersona.mostrarGeneracion();
 
-document.write(nuevaPersona.mostrarDatos());
+//console.log(sexoParam);
