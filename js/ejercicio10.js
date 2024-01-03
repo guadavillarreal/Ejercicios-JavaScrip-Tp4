@@ -17,12 +17,38 @@ class Avion {
     this.destino = destino;
     this.listaPasajeros = listaPasajeros;
   }
+  //porq no me toma el metodo
+  /*  abordar : function () {
+    document.write(
+      "Los pasajeros deben de abordar el avion: " + this.nombreAvion
+    );
+  }*/
   //metodo
-  abordar() {}
+  abordar(pasajero, capacidad) {
+    if (capacidad <= pasajero) {
+      //ver capacidad del avion
+      document.write(
+        "Los pasajeros deben de abordar el avion: " + this.nombreAvion
+      );
+    } else {
+      document.write(
+        "Capacidad maxima del avion alcanzada, no podra abordar este avion"
+      );
+    }
+  }
 }
+
 //clase hija
 class Aeropuerto extends Avion {
-  constructor(nombreAeropuerto, listaAviones) {
+  constructor(
+    nombreAvion,
+    capacidad,
+    destino,
+    listaPasajeros,
+    nombreAeropuerto,
+    listaAviones
+  ) {
+    super(nombreAvion, capacidad, destino, listaPasajeros);
     this.nombreAeropuerto = nombreAeropuerto;
     this.listaAviones = listaAviones;
   }
