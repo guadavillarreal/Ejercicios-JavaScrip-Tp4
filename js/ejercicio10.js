@@ -11,21 +11,17 @@ en el mismo, caso contrario mostrar un mensaje que indique que el avión está l
 */
 //clase padre
 class Avion {
-  constructor(nombreAvion, capacidad, destino, listaPasajeros) {
+  //lo que yo paso al crear el obj de la clase
+  constructor(nombreAvion, capacidad, destino, listaPasajeros = []) {
+    //listaPasajeros = [ ] se define por defecto un array vacio
     this.nombreAvion = nombreAvion;
     this.capacidad = capacidad;
     this.destino = destino;
     this.listaPasajeros = listaPasajeros;
   }
-  //porq no me toma el metodo
-  /*  abordar : function () {
-    document.write(
-      "Los pasajeros deben de abordar el avion: " + this.nombreAvion
-    );
-  }*/
   //metodo
-  abordar(pasajero, capacidad) {
-    if (capacidad <= pasajero) {
+  abordar(capacidad) {
+    if (this.listaPasajeros.length < capacidad) {
       //ver capacidad del avion
       document.write(
         "Los pasajeros deben de abordar el avion: " + this.nombreAvion
@@ -39,20 +35,24 @@ class Avion {
 }
 
 //clase hija
-class Aeropuerto extends Avion {
-  constructor(
-    nombreAvion,
-    capacidad,
-    destino,
-    listaPasajeros,
-    nombreAeropuerto,
-    listaAviones
-  ) {
-    super(nombreAvion, capacidad, destino, listaPasajeros);
+class Aeropuerto {
+  constructor(nombreAeropuerto, listaAviones = []) {
     this.nombreAeropuerto = nombreAeropuerto;
     this.listaAviones = listaAviones;
   }
   //metodo
-  agregarAvion(avion) {}
-  buscarAvion(nombreAvion) {}
+  agregarAvion(avion) {
+    this.listaAviones.push(avion);
+  }
+  buscarAvion(nombreAvion) {
+    for (let index = 0; index < this.listaAviones.length; index++) {
+      
+      
+    }
+  }
 }
+
+const avion1 = new Avion("avion1", 100, "Bs As", []);
+const areopuerto1 = new Aeropuerto("areopuerto1", []);
+areopuerto1.agregarAvion(avion1);
+console.log(areopuerto1);
