@@ -43,13 +43,15 @@ class Agenda {
   }
   //metodo
   aniadirContacto(contacto) {
-    if (this.contactos.length < this.tamanio) {
-      const contactoExixtente = this.existeContacto(contacto);
+    if (this.tamanio.length < 9) {
+      this.existeContacto(contacto);
+      /*     const contactoExixtente = this.existeContacto(contacto);
       if (!contactoExixtente) {
         this.contactos.push(contacto);
       } else {
         console.log("El contacto ya existe");
-      }
+      }*/
+      console.log("Se agrego un contacto nuevo");
     } else {
       console.log("Agenda llena");
     }
@@ -58,8 +60,21 @@ class Agenda {
     //find busca lo que le envio por parametro y hago la compaciron y asigna a la variable que declaro
     const contactoExistente = this.contactos.find((contact) => {
       contact.nombre === contacto.nombre;
-      console.log("El contacto ya existe en la agenda");
+      if (contactoExistente) {
+        console.log("El contacto ya existe en la agenda");
+      } else {
+        this.contactos.push(contacto);
+      }
     });
+  }
+  listarContactos() {
+    for (let index = 0; index < this.tamanio.length; index++) {
+      console.log(`<h1>Lista de Contactos:</h2>
+      <ul>
+      <li>${this.contactos.length[index]}</li>
+      </ul>
+      `);
+    }
   }
 }
 
@@ -84,3 +99,4 @@ console.log(agenda1);
 agenda1.aniadirContacto(contacto1);
 console.log(agenda1);
 console.log(agenda1.existeContacto(contacto1));
+console.log(agenda1.listarContactos);
