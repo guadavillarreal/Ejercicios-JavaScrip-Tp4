@@ -36,19 +36,19 @@ class Avion {
 
 //clase hija
 class Aeropuerto {
-  constructor(nombreAeropuerto, listaAviones = []) {
+  constructor(nombreAeropuerto, listaAviones ) {
     this.nombreAeropuerto = nombreAeropuerto;
-    this.listaAviones = listaAviones;
+    this.listaAviones =  [];
   }
   //metodo
   agregarAvion(avion) {
     this.listaAviones.push(avion);
   }
   buscarAvion(nombreAvion) {
-    for (let index = 0; index < this.listaAviones.length; index++) {
-      
-      
-    }
+    //para utilizar la funcion "find" debo de declarar una variable porq lo que obtenga de la funcion lo deposita en una variable
+    //const varnueva = objAlqAplicolaFunc.find ( nuevavar => nuevavar.loquebusco === loquebusco)
+    const buscAvion = this.listaAviones.find( item => item.nombreAvion === nombreAvion);
+    return buscAvion ;
   }
 }
 
@@ -56,3 +56,5 @@ const avion1 = new Avion("avion1", 100, "Bs As", []);
 const areopuerto1 = new Aeropuerto("areopuerto1", []);
 areopuerto1.agregarAvion(avion1);
 console.log(areopuerto1);
+areopuerto1.buscarAvion;
+document.write(areopuerto1.buscarAvion("avion1"));
