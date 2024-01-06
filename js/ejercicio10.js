@@ -48,7 +48,16 @@ class Aeropuerto {
     //para utilizar la funcion "find" debo de declarar una variable porq lo que obtenga de la funcion lo deposita en una variable
     //const varnueva = objAlqAplicolaFunc.find ( nuevavar => nuevavar.loquebusco === loquebusco)
     const buscAvion = this.listaAviones.find( item => item.nombreAvion === nombreAvion);
+    //si no coloco el return no me toma la variable
     return buscAvion ;
+    if (buscAvion) {
+      for (let index = 0; index < this.avion.length; index++) {
+        const element = array[index];
+        
+      }
+    } else {
+      
+    }
   }
 }
 
