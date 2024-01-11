@@ -54,14 +54,14 @@ class Agenda {
     if (!this.agendaLlena()) {
       //en el metdodo agendallena poner si es true o false
       this.existeContacto();
-      if (!this.existeContacto) {
+      if (this.existeContacto) {
         this.contactos.push(contacto);
-        document.write("Se agrego un contacto nuevo");
+        document.write("<br>Se agrego un contacto nuevo");
       } else {
-        document.write("El contacto ya existe en la agenda");
+        document.write("<br>El contacto ya existe en la agenda");
       }
     } else {
-      document.write("Agenda llena");
+      document.write("<br>Agenda llena");
     }
     //se llama a la funcion para verificar si existe el contacto en la agenda
     //if () {
@@ -97,20 +97,20 @@ class Agenda {
   }
   buscarContactos (contacto){
     const contactoExistente = this.contactos.find((contact) => {
-      contact.nombre === contacto.nombre;
+      contact.nombre === contacto;
       if (contactoExistente) {
         //ver como mostrar el contacto
-        document.write(`Nombre del contacto: ${this.contactos.nombre} Telefono: ${this.contacto.telefono}`);
+        console.log(`<br>Nombre del contacto: ${contacto.nuevonombre} <br>Telefono: ${contacto.telefono}`);
         return true;
       } else {
-        document.write("El contacto buscado no existe en la Agenda");
+        console.log("<br>El contacto buscado no existe en la Agenda");
         return false;
       }
     });
   }
   listarContactos() {
     for (let index = 0; index < this.contactos.length; index++) {
-      document.write(`<h2>Lista de Contactos:</h2>
+      document.write(`<br><h2>Lista de Contactos:</h2>
       <ul>
       <li> Contacto: ${this.contactos[index].mostrarDatos()} </li>
       </ul>
@@ -130,16 +130,17 @@ class Agenda {
     }
   }
 }*/
-
-const contacto1 = new Contactos("guada", 155);
-//document.write(contacto1.nuevonombre);
+const nombre = prompt("Ingrese el nombre del contacto:");
+let contacto1 = new Contactos(nombre,123);
+document.write(contacto1.nuevonombre);
 //contacto1.nuevonombre = "guadalupe";
 //console.log(contacto1.nuevonombre);
 const agenda1 = new Agenda();
 //console.log(agenda1);
-//agenda1.aniadirContacto(contacto1);
+//para que tome el contacto que ingreso por teclado debo ingresarle el parametro al obj de la clase
+agenda1.aniadirContacto(contacto1);
 //console.log(agenda1);
 //console.log(agenda1.existeContacto(contacto1));
 //console.log(agenda1.listarContactos);
-agenda1.listarContactos();
-agenda1.buscarContactos("guada");
+console.log(agenda1.listarContactos());
+//console.log(agenda1.buscarContactos("guada"));
